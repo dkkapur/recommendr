@@ -26,6 +26,9 @@ will help rebalance recommendations through feedback received upon
 taking recommendations from the site, and help provide more accurate
 results in the future.
 
+(Part 2 submission)
+~/scripts contains our mock data for testing both the aggregation and the QC (mockData, qc_test), along with scripts for data aggregation (csvToUser) and QC (quality). We have also found othe key database that we plan on using during the project (movies.csv, ratings.csv) pulled from an online database (IMDB).
+
 Project outline
 
 1.  Collect data from IMDb and TMDb on movies, including all relevant
