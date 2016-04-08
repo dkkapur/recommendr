@@ -1,0 +1,5 @@
+first_name,last_name,email,gender,age_group,location,movies_liked_id1,movies_liked_id2,movies_liked_id3,movies_liked_id4,movies_liked_id5,tv_show_liked_id1,tv_show_liked_id2,tv_show_liked_id3,tv_show_liked_id4,tv_show_liked_id5
+tahmid,shahriar,tahmids@seas.upenn.edu,male,group2,philadelphia,m1,m2,m3,m4,m5,t1,t2,t3,t4,t5
+sanjid,shahriar,sanjids@seas.upenn.edu,male,group2,ny,m1,m2,m3,m4,m6,t1,t2,t3,t4,t6
+deep,kapur,deepk@seas.upenn.edu,male,group2,philadelphia,m1,m2,m3,m4,m8,t1,t2,t9,t4,t5
+selma,belghiti,selmabel@seas.upenn.edu,female,group3,philadelphia,m2,m3,m6,m8,m10,t1,t2,t3,t7,t10
