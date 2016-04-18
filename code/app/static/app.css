@@ -1,0 +1,145 @@
+@import 'assets/theme/endless-1.5.1/bootstrap/css/bootstrap.min.css';
+@import 'assets/theme/endless-1.5.1/css/endless.css';
+@import 'assets/theme/endless-1.5.1/css/endless-skin.css';
+@import 'assets/theme/endless-1.5.1/css/pace.css';
+@import 'assets/theme/endless-1.5.1/css/slider.css';
+
+@import 'assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css';
+@import 'assets/fonts/octicons/octicons.css';
+@import 'assets/fonts/font-mfizz-1.2/font-mfizz.css';
+@import 'assets/fonts/Font-Awesome-Docker-Icon-master/fontcustom/fontcustom.css';
+
+@import 'assets/libs/angular-chart.js/angular-chart.css';
+@import 'assets/libs/angular-xeditable-0.1.8/css/xeditable.css';
+@import 'assets/libs/rzslider-0.1.21/rzslider.min.css';
+
+@import 'assets/theme/shippable/shippable.css';
+@import 'assets/theme/shippable/shippable-status.css';
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+#pic img {
+	max-width: 100%;
+	max-height: 100%;
+	height: 300px;
+	display:block;
+	border: 3px solid #faf3bc;
+	margin-top: 20px;
+	margin-bottom: auto;
+}
+
+#pics {
+	margin: 20px 20px 20px 20px;
+	
+}
+
+
+.btn-default {
+	padding: 25px 25px;
+	opacity:0.4;
+}
+
+
+
+.main {
+    
+    height: 600px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+    font-color: white;
+    font-family: "Helvetica Neue";
+    
+}
+
+.main h1 {
+    font-size: 50px;
+    font-family: "Helvetica Neue";
+    margin-bottom: -5px;
+    
+    
+}
+
+
+#info {
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    width: 200px;
+    height: 50px;
+    margin-left: 43%;
+    margin-bottom: -10px;
+    vertical-align: middle;
+    top: 40%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 15px;
+
+}
+
+#headerBar {
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 70px;
+}
+
+#logo {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    text-emphasis: italic;
+    margin-left: -900px;
+    
+    
+}
+
+a {
+	color: white;
+}
+
+.btns {
+	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    moz-box-shadow: 0px 0px 0px 0px #9fb4f2;
+	-webkit-box-shadow: 0px 0px 0px 0px #9fb4f2;
+	box-shadow: 0px 0px 0px 0px #9fb4f2;
+	
+	background: transparent;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border: none;
+	display:inline-block;
+	cursor:pointer;
+	color: white;
+	font-family:Arial;
+	font-size:18px;
+	padding:12px 28px;
+	text-decoration:none;    
+    margin-top: -40px;
+    margin-right: 5px;
+    right: 200px;
+    top: 70px;
+    float: right;
+    
+} 
+
+#login {
+	margin-left: -20px;
+	font-color: white;
+}
+
+#signup {
+    right: 100px;
+}
+
+
+

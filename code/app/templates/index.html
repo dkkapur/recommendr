@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Recommendr</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/app.css" rel="stylesheet">
+  </head>
+  <body>
+    <div style="background-image: url(../static/homeTop.jpg);" id="gradient">
+      <div class = "main">
+        <div id = "headerBar">
+          <div id="logo">Recommendr</div>
+          <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;">News Feed </div> </a> </button>
+          {% if session.get('loggedinName') != None %}
+            <button class='btns' id="signup"><a href="/signout"> Sign Out </a> </button>
+          {% endif %}
+          <button class='btns'  id="home" style="color: white;"> <a href="/index"> Home </a> </button>
+          {% if session.get('loggedinName') == None %}
+            <button class='btns' id="login"><a href="/login"> Login </a> </button>
+            <button class='btns' id="signup"><a href="/signup"> Sign Up </a> </button>
+          {% endif %}
+        </div>
+        
+        <h1 style="margin-top:100px">Find the perfect show for your valuable time </h1>
+        <h3 style="margin:20px">Expand your movie recommendations through crowdsourcing </h3>
+        <h4 style="margin-top: 50px"><a class="btn-default" href="#newfriends"role="button">Learn more</a></h4>
+      </div>
+    </div>
+    <section>
+      <div class="container" id="newfriends">
+        <h1> <strong> <center> Discover New Movies </center> </strong> </h1>
+        <p> <center> Use our website to find the perfect movie or show for you! </center> </p>
+      </div>
+      <div class="row" id="pics">
+        <div class="col-md-3" id="pic">
+          
+          <img src="static/home21.jpg" alt="Paul Rivera teaching">
+        </div>
+        <div class="col-md-3" id="pic">
+          
+          <img src="static/home22.jpg" alt="Paul Rivera teaching">
+        </div>
+        <div class="col-md-3" id="pic">
+          
+          <img src="static/home23.jpg" alt="Paul Rivera teaching">
+        </div>
+        <div class="col-md-3" id="pic">
+          
+          <img src="static/home24.jpg" alt="Paul Rivera teaching">
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

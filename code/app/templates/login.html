@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Recommendr</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/app.css" rel="stylesheet">
+    <link href="../static/main.css" rel="stylesheet">
+  </head>
+  <body >
+    <div class = "main" style="color:black">
+      <div id = "headerBar">
+        <div id="logo">PennLunch</div>
+        <button class='btns'  id="home" style="color: black;"> <a href="/index"> <div style="color:black"> Home </div>
+        <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;">News Feed </div> </a> </button>
+      </a> </button>
+      {% if session.get('loggedinName') == None %}
+        <button class='btns' id="login" ><a href="/login"> <div style="color:black"> Login </div> </a> </button>
+        <button class='btns' id="signup"><a href="/signup"> <div style="color:black"> Sign Up </div> </a> </button>
+      {% endif %}
+      {% if session.get('loggedinName') != None %}
+        <button class='btns' id="signup"><a href="/signout"> <div style="color:black"> Sign Out </div></a> </button>
+      {% endif %}
+    </div>
+    <div class="containers">
+      <h1 ><center>Log In</center></h1>
+      <form style="color:black" action="" method="post" name="login"><center>
+        {{ form.hidden_tag() }}
+        <p style="margin:20px">
+          Username:<br>
+          {{ form.username(size=80) }}<br>
+        </p>
+        <p>
+          Password:<br>
+          {{ form.password(size=80) }}<br>
+        </p>
+        <p style="color:black;"><input type="submit" value="Log In"></p>
+      </center></form>
+    </div>
+  </div></body>

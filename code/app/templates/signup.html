@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Recommendr</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/app.css" rel="stylesheet">
+    <link href="../static/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class = "main">
+      <div id = "headerBar"style="color: black;">
+        <div id="logo">PennLunch</div>
+        <button class='btns'  id="home" > <a href="/index"> <div style="color: black;">Home </div> </a> </button>
+        <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;">News Feed </div> </a> </button>
+        {% if session.get('loggedinName') == None %}
+          <button class='btns' id="login"><a href="/login"> <div style="color: black;"> Login </div></a> </button>
+          <button class='btns' id="signup"><a href="/signup"> <div style="color: black;"> Sign Up </div> </a> </button>
+        {% endif %}
+        {% if session.get('loggedinName') != None %}
+          <button class='btns' id="signout"><a href="/signout"> <div style="color: black;"> Sign Out </div></a> </button>
+        {% endif %}
+      </div>
+      <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Sign Up </div> </h1>
+      <div class="containers">
+        <form action="" method="post" name="login" style="color: black;">
+          {{ form.hidden_tag() }}
+          <p>
+            Username:<br>
+            {{ form.username(size=80) }}<br>
+          </p>
+          <p>
+            Password:<br>
+            {{ form.password(size=80) }}<br>
+          </p>
+          <p>
+            First Name:<br>
+            {{ form.firstname(size=80) }}<br>
+          </p>
+          <p>
+            Last Name:<br>
+            {{ form.lastname(size=80) }}<br>
+          </p>
+          <p>
+            Email:<br>
+            {{ form.email(size=80) }}<br>
+          </p>
+          <p>
+            Gender:<br>
+            {{ form.gender(size=80) }}<br>
+          </p>
+          <p>
+            Age:<br>
+            {{ form.age(size=80) }}<br>
+          </p>
+          <p>
+            Location:<br>
+            {{ form.location(size=80) }}<br>
+          </p>
+          <p style="color:black;"><input type="submit" value="Sign Up"></p>
+        </form>
+      </div>
+    </div>
+  </body>
