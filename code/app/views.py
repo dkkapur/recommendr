@@ -27,7 +27,21 @@ def signup():
 			data['email'] = request.form['email']
 			data['gender'] = request.form['gender']
 			data['age'] = request.form['age']
-			data['location'] = request.form['location']
+			data['extraverted'] = request.form['extraverted']
+			data['agreeable'] = request.form['agreeable']
+			data['consc'] = request.form['consc']
+			data['emotional'] = request.form['emotional']
+			data['experiences'] = request.form['experiences']
+			data['pleasureseeking'] = request.form['pleasureseeking']
+			data['nostalgia'] = request.form['nostalgia']
+			data['catharsis'] = request.form['catharsis']
+			data['aggression'] = request.form['aggression']
+			data['escapism'] = request.form['escapism']
+			data['sensationseeking'] = request.form['sensationseeking']
+			data['artistic'] = request.form['artistic']
+			data['informationseeking'] = request.form['informationseeking']
+			data['boredomavoidance'] = request.form['boredomavoidance']
+			data['socialization'] = request.form['socialization']
 			data['reviews'] = {}
 			userInfo.insert(data)
 			return redirect('/index')
