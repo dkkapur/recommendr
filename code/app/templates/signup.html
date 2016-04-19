@@ -25,6 +25,7 @@
       <div class="containers">
         <form action="" method="post" name="login" style="color: black;">
           {{ form.hidden_tag() }}
+          <h2>Basic Information</h2>
           <p>
             Username:<br>
             {{ form.username(size=80) }}<br>
@@ -45,6 +46,7 @@
             Email:<br>
             {{ form.email(size=80) }}<br>
           </p>
+          <h2>Demographic Information</h2>
           <p>
             Gender:<br>
             {{ form.gender(size=80) }}<br>
@@ -56,6 +58,72 @@
           <p>
             Location:<br>
             {{ form.location(size=80) }}<br>
+          </p>
+          <p>Personality Profile</p>
+          <p>
+            Please go to <a href="http://www.thefagans.org.uk/filmuses/survey.php">here</a> and answer the following questions based on the results:
+          </p>
+          <p>Traits</p>
+          <p>
+            Extraverted:<br>
+            {{ form.extraverted(size=80) }}<br>
+          </p>
+          <p>
+            Agreeable:<br>
+            {{ form.agreeable(size=80) }}<br>
+          </p>
+          <p>
+            Conscientious:<br>
+            {{ form.consc(size=80) }}<br>
+          </p>
+          <p>
+            Emotionally stable:<br>
+            {{ form.emotional(size=80) }}<br>
+          </p>
+          <p>
+            Open to new experiences:<br>
+            {{ form.experiences(size=80) }}<br>
+          </p>
+          </p>Purpose</form>
+          <p>
+            Pleasure-seeking<br>
+            {{ form.pleasureseeking(size=80) }}<br>
+          </p>
+          <p>
+            Nostalgia<br>
+            {{ form.(size=80) }}<br>
+          </p>
+          <p>
+            Catharsis<br>
+            {{ form.catharsis(size=80) }}<br>
+          </p>
+          <p>
+            Aggression<br>
+            {{ form.aggression(size=80) }}<br>
+          </p>
+          <p>
+            Escapism<br>
+            {{ form.escapism(size=80) }}<br>
+          </p>
+          <p>
+            Sensation-seeking<br>
+            {{ form.sensationseeking(size=80) }}<br>
+          </p>
+          <p>
+            Artistic<br>
+            {{ form.artistic(size=80) }}<br>
+          </p>
+          <p>
+            Information-seeking<br>
+            {{ form.informationseeking(size=80) }}<br>
+          </p>
+          <p>
+            Boredom-Avoidance<br>
+            {{ form.boredomavoidance(size=80) }}<br>
+          </p>
+          <p>
+            Socialization<br>
+            {{ form.socialization(size=80) }}<br>
           </p>
           <p style="color:black;"><input type="submit" value="Sign Up"></p>
         </form>
