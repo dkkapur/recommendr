@@ -21,44 +21,39 @@
           <button class='btns' id="signout"><a href="/signout"> <div style="color: black;"> Sign Out </div></a> </button>
         {% endif %}
       </div>
-
-<h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > My Watch List </div> </h1>
+      <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > {{ mov["title"] }}  </div> </h1>
+      <h4 style="margin:20px"  style="color: black;"> <div  style="color: black;" > {{ mov["genre"] }}  </div> </h4>
       <div class="containers">
-        {% for x in watchList %}
-          <!-- <div style="color: black;"> <b> {{ x }} </b> </b> </div> -->
-        
-
-        <form action= "/rate" style="color: black;"> 
-          Rate: <input type="submit" name="myr" value="{{x}}">
-        </form>
-
-
-        {% endfor %}
-      </div>
-
-
-
-      <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > My Reviews </div> </h1>
-      <div class="containers">
-        {% for x in rev %}
-          <div style="color: black;"> <b> {{ x }} </b> : <b> {{ rev[x] }} </b> </div>
-        {% endfor %}
+        <img src={{mov["image"]}} alt="Test Image" />
       </div>
       <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Add Review </div> </h1>
       <div class="containers">
         <form action="" method="post" name="login" style="color: black;">
           {{ form.hidden_tag() }}
-          <p>
+          <p hidden>
             Name:<br>
-            <select name="name">
-              {% for x in myMovie %}
-              <option > {{ x }}</option>
-              {% endfor %}
+            {{ form.name(size=80, value = mov["title"]) }}<br>
+          </p>
+          <p>
+            Rating: <br>
+            <select name="rate">
+              <option > 1 </option>
+              <option > 2 </option>
+              <option > 3 </option>
+              <option > 4 </option>
+              <option > 5 </option>
             </select>
-<!--             {{ form.name(size=80) }}<br> -->
           </p>
           <p style="color:black;"><input type="submit" value="Sign Up"></p>
         </form>
+
+
+        <form action="/watch">
+          <input type="submit" value="Add to Watch List">
+        </form>
+
+
+
       </div>
     </div>
   </body>

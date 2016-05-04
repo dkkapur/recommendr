@@ -41,3 +41,8 @@ class ReviewForm(Form):
     rate = TextField('rate', validators=[Required()])
 
 
+class SearchForm(Form):
+    name = TextField('name', validators=[Required()])
+
+class WatchForm(Form):
+    name = TextField('name', validators=[Required()])
