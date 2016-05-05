@@ -8,125 +8,127 @@
     <link href="../static/main.css" rel="stylesheet">
   </head>
   <body>
-    <div class = "main">
-      <div id = "headerBar"style="color: black;">
-        <div id="logo">Recommendr</div>
-        <button class='btns'  id="home" > <a href="/index"> <div style="color: black;">Home </div> </a> </button>
-        <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;">News Feed </div> </a> </button>
-        {% if session.get('loggedinName') == None %}
-          <button class='btns' id="login"><a href="/login"> <div style="color: black;"> Login </div></a> </button>
-          <button class='btns' id="signup"><a href="/signup"> <div style="color: black;"> Sign Up </div> </a> </button>
-        {% endif %}
-        {% if session.get('loggedinName') != None %}
-          <button class='btns' id="signout"><a href="/signout"> <div style="color: black;"> Sign Out </div></a> </button>
-        {% endif %}
-      </div>
-      <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Sign Up </div> </h1>
+    <div id = "headerBar" style= "background-color: white">
+      <div style="margin-left: 20px"><img src="../static/assets/img/logo.png" height="50"></div>
+      <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;"> Search </div> </a> </button>
+      {% if session.get('loggedinName') != None %}
+        <button class='btns' id="signout"><a href="/signout"> <div style="color: black;"> Sign Out </div></a> </button>
+      {% endif %}
+      <button class='btns'  id="home" style="color: white;"> <a href="/index"> <div style="color: black;"> Home </div> </a> </button>
+      {% if session.get('loggedinName') == None %}
+        <button class='btns' id="login"><a href="/login"> <div style="color: black;"> Login </div>  </a> </button>
+        <button class='btns' id="signup"><a href="/signup"> <div style="color: black;"> Sign Up  </div> </a> </button>
+      {% endif %}
+    </div>
+    <div class = "main" style="background: black; height: 100%; overflow: auto; width: 20%; display:inline-block"></div>
+    <div class = "main" style="height: 100%; overflow: auto; display:inline-block; width: 59%">
+      <h2 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Sign Up </div> </h2>
       <div class="containers">
         <form action="" method="post" name="login" style="color: black;">
           {{ form.hidden_tag() }}
-          <h2>Basic Information</h2>
-          <p>
-            Username:<br>
-            {{ form.username(size=80) }}<br>
+          <h3 style="font-style: italic; margin-top: 10px">Basic Information</h3>
+          <p style="font-size: 18px">
+            Username: 
+            {{ form.username(size=50) }}<br>
           </p>
-          <p>
-            Password:<br>
-            {{ form.password(size=80) }}<br>
+          <p style="font-size: 18px">
+            Password: 
+            {{ form.password(size=50) }}<br>
           </p>
-          <p>
-            First Name:<br>
-            {{ form.firstname(size=80) }}<br>
+          <p style="font-size: 18px;">
+            First Name: 
+            {{ form.firstname(size=50) }}<br>
           </p>
-          <p>
-            Last Name:<br>
-            {{ form.lastname(size=80) }}<br>
+          <p style="font-size: 18px">
+            Last Name: 
+            {{ form.lastname(size=50) }}<br>
           </p>
-          <p>
-            Email:<br>
-            {{ form.email(size=80) }}<br>
+          <p style="font-size: 18px">
+            Email: 
+            {{ form.email(size=50) }}<br>
           </p>
-          <h2>Demographic Information</h2>
-          <p>
-            Gender:<br>
-            {{ form.gender(size=80) }}<br>
+          <h3 style="font-style: italic; margin-top: 10px">Demographic Information</h3>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Gender: 
+            {{ form.gender(size=10) }}<br>
           </p>
-          <p>
-            Age:<br>
-            {{ form.age(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Age: 
+            {{ form.age(size=10) }}<br>
           </p>
-          <p>
-            Location:<br>
-            {{ form.location(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Zip Code: 
+            {{ form.location(size=10) }}<br>
           </p>
-          <p>Personality Profile</p>
-          <p>
-            Please go to <a href="http://www.thefagans.org.uk/filmuses/survey.php">here</a> and answer the following questions based on the results:
+          <h3 style="font-style: italic; margin-top: 10px">Personality Profile</h3>
+          <p style="font-size: 18px">
+            Please go <a href="http://www.thefagans.org.uk/filmuses/survey.php" style="color: blue">here</a> and answer the following questions based on the results. <br> Enter your values as they are in percentages, without the % sign. For example: 75% would be entered as 75
           </p>
-          <p>Traits</p>
-          <p>
-            Extraverted:<br>
-            {{ form.extraverted(size=80) }}<br>
+          <p style="font-size: 18px; text-decoration: underline; margin-top: 10px">Traits</p>
+          <p style="font-size: 18px; display: inline-block">
+            Extraverted:
+            {{ form.extraverted(size=5) }}<br>
           </p>
-          <p>
-            Agreeable:<br>
-            {{ form.agreeable(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Agreeable:
+            {{ form.agreeable(size=5) }}<br>
           </p>
-          <p>
-            Conscientious:<br>
-            {{ form.consc(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Conscientious:
+            {{ form.consc(size=5) }}<br>
           </p>
-          <p>
-            Emotionally stable:<br>
-            {{ form.emotional(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Emotionally stable:
+            {{ form.emotional(size=5) }}<br>
           </p>
-          <p>
-            Open to new experiences:<br>
-            {{ form.experiences(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Open to new experiences:
+            {{ form.experiences(size=5) }}<br>
           </p>
-          </p>Purpose</p>
-          <p>
-            Pleasure-seeking<br>
-            {{ form.pleasureseeking(size=80) }}<br>
+          <p style="font-size: 18px; text-decoration: underline; margin-top: 10px">Purpose</p>
+          <p style="font-size: 18px; display: inline-block">
+            Pleasure-seeking:
+            {{ form.pleasureseeking(size=5) }}<br>
           </p>
-          <p>
-            Nostalgia<br>
-            {{ form.nostalgia(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Nostalgia:
+            {{ form.nostalgia(size=5) }}<br>
           </p>
-          <p>
-            Catharsis<br>
-            {{ form.catharsis(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px; margin-top: 5px">
+            Catharsis:
+            {{ form.catharsis(size=5) }}<br>
           </p>
-          <p>
-            Aggression<br>
-            {{ form.aggression(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Aggression:
+            {{ form.aggression(size=5) }}<br>
           </p>
-          <p>
-            Escapism<br>
-            {{ form.escapism(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px; margin-top: 5px">
+            Escapism:
+            {{ form.escapism(size=5) }}<br>
+          </p><br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Sensation-seeking: 
+            {{ form.sensationseeking(size=5) }}<br>
           </p>
-          <p>
-            Sensation-seeking<br>
-            {{ form.sensationseeking(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px; margin-top: 5px">
+            Artistic: 
+            {{ form.artistic(size=5) }}<br>
           </p>
-          <p>
-            Artistic<br>
-            {{ form.artistic(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Information-seeking: 
+            {{ form.informationseeking(size=5) }}<br>
           </p>
-          <p>
-            Information-seeking<br>
-            {{ form.informationseeking(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px; margin-top: 5px">
+            Boredom-Avoidance: 
+            {{ form.boredomavoidance(size=5) }}<br>
           </p>
-          <p>
-            Boredom-Avoidance<br>
-            {{ form.boredomavoidance(size=80) }}<br>
-          </p>
-          <p>
-            Socialization<br>
-            {{ form.socialization(size=80) }}<br>
+          <p style="font-size: 18px; display: inline-block; margin-left: 30px">
+            Socialization: 
+            {{ form.socialization(size=5) }}<br>
           </p>
           <p style="color:black;"><input type="submit" value="Sign Up"></p>
         </form>
       </div>
     </div>
+    <div class = "main" style="background: black; height: 100%; overflow: auto; width: 20%; display:inline-block"></div>
   </body>

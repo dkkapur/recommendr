@@ -8,25 +8,25 @@
     <link href="../static/main.css" rel="stylesheet">
   </head>
   <body>
+    <div id = "headerBar" style= "background-color: white">
+      <div style="margin-left: 20px"><img src="../static/assets/img/logo.png" height="50"></div>
+      <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;"> Search </div> </a> </button>
+      {% if session.get('loggedinName') != None %}
+        <button class='btns' id="signout"><a href="/signout"> <div style="color: black;"> Sign Out </div></a> </button>
+      {% endif %}
+      <button class='btns'  id="home" style="color: white;"> <a href="/index"> <div style="color: black;"> Home </div> </a> </button>
+      {% if session.get('loggedinName') == None %}
+        <button class='btns' id="login"><a href="/login"> <div style="color: black;"> Login </div>  </a> </button>
+        <button class='btns' id="signup"><a href="/signup"> <div style="color: black;"> Sign Up  </div> </a> </button>
+      {% endif %}
+    </div>
     <div class = "main">
-      <div id = "headerBar"style="color: black;">
-        <div id="logo">Recommendr</div>
-        <button class='btns'  id="home" > <a href="/index"> <div style="color: black;">Home </div> </a> </button>
-        <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;">News Feed </div> </a> </button>
-        {% if session.get('loggedinName') == None %}
-          <button class='btns' id="login"><a href="/login"> <div style="color: black;"> Login </div></a> </button>
-          <button class='btns' id="signup"><a href="/signup"> <div style="color: black;"> Sign Up </div> </a> </button>
-        {% endif %}
-        {% if session.get('loggedinName') != None %}
-          <button class='btns' id="signout"><a href="/signout"> <div style="color: black;"> Sign Out </div></a> </button>
-        {% endif %}
-      </div>
       <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > {{ mov["title"] }}  </div> </h1>
       <h4 style="margin:20px"  style="color: black;"> <div  style="color: black;" > {{ mov["genre"] }}  </div> </h4>
       <div class="containers">
         <img src={{mov["image"]}} alt="Test Image" />
       </div>
-      <h1 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Add Review </div> </h1>
+      <h2 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Add Review </div> </h2>
       <div class="containers">
         <form action="" method="post" name="login" style="color: black;">
           {{ form.hidden_tag() }}
@@ -44,16 +44,13 @@
               <option > 5 </option>
             </select>
           </p>
-          <p style="color:black;"><input type="submit" value="Sign Up"></p>
+          <p style="color:black;"><input type="submit" value="Add Review"></p>
         </form>
-
+        <h2 style="margin:20px"  style="color: black;"> <div  style="color: black;" > Add to Watchlist </div> </h2>
         <p style="color:black;"> {{ final }} </p>
-        <form action="/watch">
-          <input type="submit" value="Add to Watch List">
+        <form action="/watch" style="color: black">
+          <input type="submit" value="Add to Watch List" style="color: black">
         </form>
-
-
-
       </div>
     </div>
   </body>

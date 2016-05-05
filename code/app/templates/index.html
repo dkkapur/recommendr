@@ -6,7 +6,7 @@
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/app.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="background: white">
     <div id = "headerBar" style= "background-color: white">
       <div id="logo"><img src="../static/assets/img/logo.png" height="50"></div>
       <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;"> Search </div> </a> </button>
@@ -24,26 +24,19 @@
         <div class="main_h1">Recommendr</div>  
         <div class="main_h2">Figure out the best movie to watch next</div>
         <div class="main_h3">Expand your movie recommendations through crowdsourcing </div>
-        <h4 style="margin-top: 50px"><a class="btn-default" href="#newfriends"role="button">Learn more</a></h4>
+        <h4 style="margin-top: 50px"><a class="btn-default" href="#about"role="button">Learn more</a></h4>
       </div>
     </div>
-    <div class="container" id="newfriends">
+    <div class="container" id="about">
       <h1> <strong> <center> Discover New Movies </center> </strong> </h1>
-      <p> <center> Use our website to find the perfect movie or show for you! </center> </p>
+      <h3> <center> Our website uses a unique algorithm to help you choose a movie to watch! </center> </h3>
     </div>
-    <div class="row" id="pics">
-      <div class="col-md-3" id="pic">
-        <img src="static/home21.jpg" alt="Paul Rivera teaching">
-      </div>
-      <div class="col-md-3" id="pic">
-        <img src="static/home22.jpg" alt="Paul Rivera teaching">
-      </div>
-      <div class="col-md-3" id="pic">
-        <img src="static/home23.jpg" alt="Paul Rivera teaching">
-      </div>
-      <div class="col-md-3" id="pic">
-        <img src="static/home24.jpg" alt="Paul Rivera teaching">
-      </div>
+    <div style="padding: 50px 200px 50px 200px; font-size: 20px">Project Overview
+For our NETS 213 Final Project, we chose to examine the problem of movie recommendation. This is a problem for both users who spend a lot of time trying to find the best movie for them and for companies like Netflix and Hulu who depend on user satisfaction. This need for better recommendation was reinforced in 2009 when Netflix came out with the Netflix Prize offering $1M to the team that could improve their recommendation algorithm. When conducting research, we found that most of the algorithms used some type of collaborative filtering to generate the ratings but failed to take into account an important factor that is involved with preferences: personality! Thus, we decided to develop a web platform that would use user’s personality to determine their movie preference. We will be using the crowd to allow us to generate our ratings since we will be looking at members with similar and dissimilar personalities to determine a specific user’s rating. We also implement quality control in our calculation to ensure that the user ratings are reliable and provide our users with the most accurate rating! Finally we also incorporated a feature that will allow you to search for a movie, if the movie is currently in theaters, we will show you the showtimes and theaters near you that are playing this movie to help improve and facilitate your movie watching experience!
+We hope that you enjoy using our platform! </div>
+    <div align="center">
+      <img src="../static/team.jpg">
+    </div>
     </div>
   </body>
 </html>
