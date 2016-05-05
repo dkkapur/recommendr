@@ -42,32 +42,61 @@ html,body{
 
 .btn-default {
 	padding: 25px 25px;
-	opacity:0.4;
+    background-color: white;
+    border-radius: 20px;
 }
 
 
 
+.main-background {
+    background: url(../static/theatre2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    height: calc(100% - 70px);
+    
+}
+
 .main {
     
     height: 600px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     text-align: center;
     padding-top: 30px;
     color: white;
     font-color: white;
     font-family: "Helvetica Neue";
+    display: block;
+
     
 }
 
-.main h1 {
+.main_h1 {
+    font-size: 120px;
+    font-family: "Helvetica Neue";
+    color: white;
+    clear: left;
+    padding-top: 300px;
+     
+}
+
+.main_h2 {
     font-size: 50px;
     font-family: "Helvetica Neue";
-    margin-bottom: -5px;
-    
-    
+    color: #b3b3b3;
+    clear: left;
+}
+
+.main_h3 {
+    font-size: 30px;
+    font-family: "Helvetica Neue";
+    color: #b3b3b3;
+    clear: left;
 }
 
 
@@ -96,8 +125,8 @@ html,body{
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     font-weight: 800;
-    text-emphasis: italic;
-    margin-left: -900px;
+    color: black !important;
+    margin-left: 20px;
     
     
 }

@@ -7,49 +7,41 @@
     <link href="../static/app.css" rel="stylesheet">
   </head>
   <body>
-    <div style="background-image: url(../static/homeTop.jpg);" id="gradient">
-      <div class = "main">
-        <div id = "headerBar">
-          <div id="logo">Recommendr</div>
-          <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;">News Feed </div> </a> </button>
-          {% if session.get('loggedinName') != None %}
-            <button class='btns' id="signup"><a href="/signout"> Sign Out </a> </button>
-          {% endif %}
-          <button class='btns'  id="home" style="color: white;"> <a href="/index"> Home </a> </button>
-          {% if session.get('loggedinName') == None %}
-            <button class='btns' id="login"><a href="/login"> Login </a> </button>
-            <button class='btns' id="signup"><a href="/signup"> Sign Up </a> </button>
-          {% endif %}
-        </div>
-        
-        <h1 style="margin-top:100px">Find the perfect show for your valuable time </h1>
-        <h3 style="margin:20px">Expand your movie recommendations through crowdsourcing </h3>
-        <h4 style="margin-top: 50px"><a class="btn-default" href="#newfriends"role="button">Learn more</a></h4>
+    <div id = "headerBar" style= "background-color: white">
+      <div id="logo"><img src="../static/assets/img/logo.png" height="50"></div>
+      <button class='btns'  id="home" > <a href="/newsFeedStuff"> <div style="color: black;"> Search </div> </a> </button>
+      {% if session.get('loggedinName') != None %}
+        <button class='btns' id="signup"><a href="/signout"><div style="color: black;"> Sign Out </div> </a> </button>
+      {% endif %}
+      <button class='btns'  id="home" style="color: white;"> <a href="/index"> <div style="color: black;"> Home </div> </a> </button>
+      {% if session.get('loggedinName') == None %}
+        <button class='btns' id="login"><a href="/login"> <div style="color: black;"> Login </div>  </a> </button>
+        <button class='btns' id="signup"><a href="/signup"> <div style="color: black;"> Sign Up  </div> </a> </button>
+      {% endif %}
+    </div>
+    <div class = "main-background">    
+      <div class="main_h1">Recommendr</div>  
+      <div class="main_h2">Figure out the best movie to watch next</div>
+      <div class="main_h3">Expand your movie recommendations through crowdsourcing </div>
+      <h4 style="margin-top: 50px"><a class="btn-default" href="#newfriends"role="button">Learn more</a></h4>
+    </div>
+    <div class="container" id="newfriends">
+      <h1> <strong> <center> Discover New Movies </center> </strong> </h1>
+      <p> <center> Use our website to find the perfect movie or show for you! </center> </p>
+    </div>
+    <div class="row" id="pics">
+      <div class="col-md-3" id="pic">
+        <img src="static/home21.jpg" alt="Paul Rivera teaching">
+      </div>
+      <div class="col-md-3" id="pic">
+        <img src="static/home22.jpg" alt="Paul Rivera teaching">
+      </div>
+      <div class="col-md-3" id="pic">
+        <img src="static/home23.jpg" alt="Paul Rivera teaching">
+      </div>
+      <div class="col-md-3" id="pic">
+        <img src="static/home24.jpg" alt="Paul Rivera teaching">
       </div>
     </div>
-    <section>
-      <div class="container" id="newfriends">
-        <h1> <strong> <center> Discover New Movies </center> </strong> </h1>
-        <p> <center> Use our website to find the perfect movie or show for you! </center> </p>
-      </div>
-      <div class="row" id="pics">
-        <div class="col-md-3" id="pic">
-          
-          <img src="static/home21.jpg" alt="Paul Rivera teaching">
-        </div>
-        <div class="col-md-3" id="pic">
-          
-          <img src="static/home22.jpg" alt="Paul Rivera teaching">
-        </div>
-        <div class="col-md-3" id="pic">
-          
-          <img src="static/home23.jpg" alt="Paul Rivera teaching">
-        </div>
-        <div class="col-md-3" id="pic">
-          
-          <img src="static/home24.jpg" alt="Paul Rivera teaching">
-        </div>
-      </div>
-    </section>
   </body>
 </html>
