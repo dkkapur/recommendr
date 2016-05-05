@@ -112,7 +112,7 @@ def newsFeedStuff():
 			v = myUser['watch']
 		else:
 			v = []
-		return render_template('newsFeedStuff.html', title='Sign Up', form=form, session = session, rev = myUser['reviews'], myMovie = myMovie, watchList = v, f = setReview)
+		return render_template('newsFeedStuff.html', title='Sign Up', form=form, session = session, rev = myUser['reviews'], myMovie = myMovie, watchList = v)
 	except pymongo.errors.ConnectionFailure, e:
 		print "Could not connect to MongoDB: %s" % e
 		return redirect('/newsFeedStuff')
@@ -192,9 +192,9 @@ def mov():
 			myUser = myUser[0]
 			userInfo.remove({'username' : session['username']})
 			myUser['reviews'][request.form['name']] = request.form['rate']
-			if "watchList" in myUser:
-				if request.form['name'] in myUser["watchList"]:
-					myUser["watchList"].remove([request.form['name']])
+			if "watch" in myUser:
+				if request.form['name'] in myUser["watch"]:
+					myUser["watch"].remove(request.form['name'])
 			userInfo.insert(myUser)			
 			return redirect("/newsFeedStuff")
 		except pymongo.errors.ConnectionFailure, e:
@@ -204,23 +204,56 @@ def mov():
 		if session['current']:
 			if session['current'] == "":
 				return redirect("/newsFeedStuff")
-
 			title = session['current']
 			session['current'] = ""
 			session['watch'] = title
-
 			try:
 				conn=pymongo.MongoClient()
 				db = conn.nets
 				movieInfo = db.movieInfo
+				userInfo = db.userInfo
 				myV = list(movieInfo.find({'title' : title}))
+				print "0"
 				if len(myV) > 0:
 					myV = myV[0]
+					myUser = list(userInfo.find({}))
+					me = list(userInfo.find({'username' : session['username']}))
+					viewed = []
+					final = -1
+					n = 0
+					print "1"
+					for u in myUser:
+						if title in u['reviews'] and u != me[0]:
+							viewed.append(u)
+					print "1.5"
+					if (len(viewed) > 0):
+						final = 0
+					print "2"
+					for vu in viewed:
+						print "hiiiiiiii"
+						score = simScore(me, vu)
+						rated = vu['reviews'][title]
+						print str(score) + " : " + str(rated)
+						if rated == "3":
+							if score > 0.3:
+								final = final + 3
+								n = n + 1
+						else:
+							if score > 0.3:
+								final = final + int(rated)
+								n = n + 1
+							else:
+								final = final + (6 - int(rated))
+								n = n + 1
+					print "3"
+					if (n != 0):
+						final = round( float(final) / float(n), 0)
+
 				else:
 					return "Movie not found"
 			except:
 				return "welp"
-			return render_template('movie.html', title=title, session = session, mov = myV, form = form)
+			return render_template('movie.html', title=title, session = session, mov = myV, form = form, final = final)
 		else:
 			return redirect("/newsFeedStuff")
 
@@ -272,3 +305,146 @@ def watchL():
 def setReview():
 	session["current"] = request.args['myr']
 	return redirect ('/movie')
+
+
+
+def simScore(me, other):
+	me = me[0]
+	diff = 0.0
+	factor = 0.0
+	diff = diff + abs(int(me['extraverted']) - int(other['extraverted']))
+	if abs(int(me['extraverted']) - int(other['extraverted'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['extraverted']) - int(other['extraverted'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['agreeable']) - int(other['agreeable']))
+	if abs(int(me['agreeable']) - int(other['agreeable'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['agreeable']) - int(other['agreeable'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['consc']) - int(other['consc']))
+	if abs(int(me['consc']) - int(other['consc'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['consc']) - int(other['consc'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+
+	diff = diff + abs(int(me['emotional']) - int(other['emotional']))
+	if abs(int(me['emotional']) - int(other['emotional'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['emotional']) - int(other['emotional'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['experiences']) - int(other['experiences']))
+	if abs(int(me['experiences']) - int(other['experiences'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['experiences']) - int(other['experiences'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	d1 = diff/factor
+
+
+	diff = 0.0
+	factor = 0.0
+	diff = diff + abs(int(me['pleasureseeking']) - int(other['pleasureseeking']))
+	if abs(int(me['pleasureseeking']) - int(other['pleasureseeking'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['pleasureseeking']) - int(other['pleasureseeking'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['nostalgia']) - int(other['nostalgia']))
+	if abs(int(me['nostalgia']) - int(other['nostalgia'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['nostalgia']) - int(other['nostalgia'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+
+	diff = diff + abs(int(me['catharsis']) - int(other['catharsis']))
+	if abs(int(me['catharsis']) - int(other['catharsis'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['catharsis']) - int(other['catharsis'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+
+	diff = diff + abs(int(me['aggression']) - int(other['aggression']))
+	if abs(int(me['aggression']) - int(other['aggression'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['aggression']) - int(other['aggression'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+
+	diff = diff + abs(int(me['escapism']) - int(other['escapism']))
+	if abs(int(me['escapism']) - int(other['escapism'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['escapism']) - int(other['escapism'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+
+
+	diff = diff + abs(int(me['sensationseeking']) - int(other['sensationseeking']))
+	if abs(int(me['sensationseeking']) - int(other['sensationseeking'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['sensationseeking']) - int(other['sensationseeking'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['artistic']) - int(other['artistic']))
+	if abs(int(me['artistic']) - int(other['artistic'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['artistic']) - int(other['artistic'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['informationseeking']) - int(other['informationseeking']))
+	if abs(int(me['informationseeking']) - int(other['informationseeking'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['informationseeking']) - int(other['informationseeking'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['boredomavoidance']) - int(other['boredomavoidance']))
+	if abs(int(me['boredomavoidance']) - int(other['boredomavoidance'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['boredomavoidance']) - int(other['boredomavoidance'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+
+	diff = diff + abs(int(me['socialization']) - int(other['socialization']))
+	if abs(int(me['socialization']) - int(other['socialization'])) > 35:
+		factor = factor + 1.5
+	elif abs(int(me['socialization']) - int(other['socialization'])) < 10:
+		factor = factor + 0.5
+	else:
+		factor = factor + 1.0
+	d2 = diff/factor
+
+	return (100/(d1 + d2))
+
+
+
