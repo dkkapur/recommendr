@@ -1,0 +1,3 @@
+Compilation of some screen captures from our website as it currently stands. 
+
+We have a lot of improvements in mind, mostly in terms of the UX, but also for how we hope to scale the product for more users. 
